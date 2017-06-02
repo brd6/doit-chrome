@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DoIt</title>
+    <meta name="description" content="DoIt!">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="vendors/angular.min.js"></script>
+</head>
+<body ng-app="DoIt" class="background-blue-v2">
+<div id="main" ng-controller="AppController">
+    <div class="task-container container">
+        <h1 class="text-center">What's next ?</h1>
+        <div class="task-add">
+            <i class="fa fa-plus icon"></i>
+            <input type="text" name="task-new-content" class="form-control task-input" placeholder="Add task"  ng-model="task" my-enter="addTask()">
+        </div>
+        <ul class="tasks">
+            <li class="row item" ng-repeat="todo in $storage.tasks" ng-mouseenter="taskActionsDisplay=true" ng-mouseleave="taskActionsDisplay=false">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control task-input" value="{{todo.task}}" ng-model="todo.task">
+                </div>
+                <div class="col-sm-2">
+                    <div class="task-actions pull-right" ng-show="taskActionsDisplay">
+                        <a class="task-mark-done" ng-click="doneTask($index)">
+                            <i class="todo-edit fa fa-check"></i>
+                        </a>
+                        <a class="task-remove" ng-click="deleteTask($index)">
+                            <i class="fa fa-remove"></i>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="vendors/jquery-3.2.1.min.js"></script>
+<script src="vendors/tether.min.js"></script>
+<script src="vendors/bootstrap.min.js"></script>
+<script src="vendors/ngStorage.min.js"></script>
+<script src="vendors/angular-animate.js"></script>
+
+<script src="js/app.js"></script>
+<script src="js/AppController.js"></script>
+
+</body>
+</html>

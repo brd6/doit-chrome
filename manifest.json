@@ -1,0 +1,9 @@
+{
+  "manifest_version": 2,
+  "name": "DoIt",
+  "description": "A todo list in your chrome tab.",
+  "version": "0.1",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}
